@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>NEON VOID - Cosmic Runner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+        
+        <div id="ui-layer">
+            <!-- Start Screen -->
+            <div id="start-screen" class="screen active">
+                <div class="screen-content">
+                    <h1 class="game-title">
+                        <span class="title-line">NEON</span>
+                        <span class="title-line">VOID</span>
+                    </h1>
+                    <p class="game-subtitle">COSMIC RUNNER</p>
+                    <div class="title-accent"></div>
+                    
+                    <div class="high-score-display">
+                        <span class="hs-label">BEST</span>
+                        <span class="hs-value" id="high-score">0</span>
+                    </div>
+                    
+                    <button id="start-btn" class="neon-btn primary">
+                        <span class="btn-text">BEGIN RUN</span>
+                        <span class="btn-glow"></span>
+                    </button>
+                    
+                    <div class="controls-hint">
+                        <div class="control-grid">
+                            <div class="control-item">
+                                <div class="key-combo">
+                                    <kbd class="key">←</kbd><kbd class="key">→</kbd>
+                                    <kbd class="key">↑</kbd><kbd class="key">↓</kbd>
+                                </div>
+                                <span>Move</span>
+                            </div>
+                            <div class="control-item">
+                                <kbd class="key">SPACE</kbd>
+                                <span>Dash</span>
+                            </div>
+                        </div>
+                        <div class="control-item touch-only">
+                            <span class="touch-indicator">Left/Right zones: move</span>
+                            <span>Right zone: dash</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pause Screen -->
+            <div id="pause-screen" class="screen">
+                <div class="screen-content">
+                    <h2 class="pause-title">PAUSED</h2>
+                    <button id="resume-btn" class="neon-btn secondary">CONTINUE</button>
+                    <button id="restart-btn" class="neon-btn ghost">RESTART</button>
+                    <button id="quit-btn" class="neon-btn danger">QUIT</button>
+                </div>
+            </div>
+            
+            <!-- Game Over Screen -->
+            <div id="gameover-screen" class="screen">
+                <div class="screen-content">
+                    <h2 class="gameover-title">RUN ENDED</h2>
+                    <div class="final-stats">
+                        <div class="stat">
+                            <span class="stat-value" id="final-score">0</span>
+                            <span class="stat-label">SCORE</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value" id="final-distance">0m</span>
+                            <span class="stat-label">DISTANCE</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value" id="final-time">0:00</span>
+                            <span class="stat-label">TIME</span>
+                        </div>
+                    </div>
+                    <div id="new-record" class="new-record hidden">NEW RECORD!</div>
+                    <button id="play-again-btn" class="neon-btn primary">RUN AGAIN</button>
+                    <button id="menu-btn" class="neon-btn ghost">MAIN MENU</button>
+                </div>
+            </div>
+            
+            <!-- HUD -->
+            <div id="hud" class="hidden">
+                <div class="hud-left">
+                    <div class="score-panel">
+                        <span class="score-label">SCORE</span>
+                        <span class="score-value" id="score">0</span>
+                    </div>
+                    <div class="distance-panel">
+                        <span class="dist-label">DIST</span>
+                        <span class="dist-value" id="distance">0m</span>
+                    </div>
+                </div>
+                <div class="hud-center">
+                    <div class="multiplier" id="multiplier" style="display:none">
+                        <span class="mult-label">×</span>
+                        <span class="mult-value" id="mult-value">1</span>
+                    </div>
+                </div>
+                <div class="hud-right">
+                    <div class="dash-meter">
+                        <div class="dash-track">
+                            <div class="dash-fill" id="dash-fill"></div>
+                        </div>
+                        <span class="dash-label">DASH</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Controls -->
+            <div id="mobile-controls" class="hidden touch-only">
+                <div class="touch-zone left-zone" data-dir="left"></div>
+                <div class="touch-zone right-zone" data-dir="right"></div>
+            </div>
+        </div>
+        
+        <!-- Particle canvas for UI effects -->
+        <canvas id="ui-canvas" class="hidden"></canvas>
+    </div>
+    
+    <audio id="sfx-engine" preload="auto" loop></audio>
+    <audio id="sfx-dash" preload="auto"></audio>
+    <audio id="sfx-collect" preload="auto"></audio>
+    <audio id="sfx-hit" preload="auto"></audio>
+    <audio id="sfx-levelup" preload="auto"></audio>
+    
+    <script src="game.js"></script>
+</body>
+</html>
