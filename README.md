@@ -48,7 +48,7 @@ Then visit `http://localhost:8000`
 
 
 
-!<img width="1254" height="670" alt="image" src="https://github.com/user-attachments/assets/ccbd08b3-e93b-4a05-8885-30ba9280738c" />)
+<img width="1254" height="670" alt="image" src="https://github.com/user-attachments/assets/ccbd08b3-e93b-4a05-8885-30ba9280738c" />
 
 ## Development
 
