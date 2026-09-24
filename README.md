@@ -46,9 +46,9 @@ Then visit `http://localhost:8000`
 ## Screenshots
 
 
-<img width="1254" height="670" alt="image" src="https://github.com/user-attachments/assets/ccbd08b3-e93b-4a05-8885-30ba9280738c" />
 
-![Gameplay](https://via.placeholder.com/800x600/0a001a/ffffff?text=Neon+Void+Gameplay)
+
+!<img width="1254" height="670" alt="image" src="https://github.com/user-attachments/assets/ccbd08b3-e93b-4a05-8885-30ba9280738c" />)
 
 ## Development
 
